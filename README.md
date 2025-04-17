@@ -7,3 +7,33 @@ Your report generator system: upload, view, download
 
 
 ## Реализация
+- [ ] Форма для приёма файла
+- [ ] Вью для логики
+- [ ] Настройки
+- [ ] Шаблон
+- [ ] Докуемнтация
+
+
+## Технологии
+Python 3.9, Django, python-docx
+Все требования к установке описаны в report_generator/requirements.txt
+
+## Запуск проекта
+Для запуска проекта выполните последовательно команды:
+
+```bash
+git clone https://github.com/belyashnikovatn/report_generator
+```
+
+```bash
+python -m venv venv   
+. venv/Scripts/activate  
+python -m pip install --upgrade pip  
+pip install -r requirements.txt   
+cd report_project/
+python manage.py runserver   
+```
+
+Перейдите по ссылке:  
+http://127.0.0.1:8000/  
+Откроется домашняя страница:  
