@@ -11,8 +11,15 @@ Your report generator system: upload, view, download
 - [x] Вью для логики
 - [x] Настройки
 - [x] Шаблон
-- [x] Докуемнтация
+- [x] Документация
 
+Настройки для отчёта вынесены в settings в раздел REPORT_CONFIG:
+- fields_to_display - поля для отображения 
+- sum_fields - поля для вычисления суммы
+- required_field - обязательные поля, без заполнения которых строка не будет выходить в отчёт
+- field_mappings - мапинг полей в csv и названиями в отчёте
+- number_format - форматирование чисел
+- unit_divisors - преобразование ед.изм.
 
 ## Технологии
 Python 3.9, Django, python-docx

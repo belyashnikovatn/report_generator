@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Отчет</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1, h2 {
+            margin-bottom: 0.3em;
+        }
+        p {
+            line-height: 1.5;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 6px 10px;
+            text-align: left;
+        }
+        .download {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Отчет</h2>
-    <table border="1">
+
+    <h1>1.6.1. Автомобильный транспорт</h1>
+    <h2>1.6.1.1. Автомобильные дороги федерального, регионального и межмуниципального значения</h2>
+
+    <p>
+        Внешние транспортные связи населенных пунктов обеспечиваются автомобильным транспортом, 
+        выполняющим основные грузовые и пассажирские перевозки. Перечень автомобильных дорог общего пользования 
+        федерального, регионального или межмуниципального значения, расположенных на территории муниципального округа, 
+        приведен в таблицах ниже.
+    </p>
+    <p>
+        На территории муниципального округа не расположены автомобильные дороги федерального значения.
+    </p>
+
+    <p><strong>Таблица 1.6.1.1.1 Дороги общего пользования регионального и межмуниципального значения:</strong></p>
+
+    <table>
         <thead>
             <tr>
+                <th>№</th>
                 {% for key in data.0.keys %}
                     <th>{{ key }}</th>
                 {% endfor %}
@@ -17,16 +60,28 @@
         <tbody>
             {% for row in data %}
                 <tr>
+                    <td>{{ forloop.counter }}</td>
                     {% for value in row.values %}
                         <td>{{ value }}</td>
                     {% endfor %}
                 </tr>
             {% endfor %}
+
+            <!-- Итоговая строка -->
+            <tr>
+                <td colspan="{{ data.0.keys|length }}">Итого:</td>
+                <td>{{ total }}</td>
+            </tr>
         </tbody>
     </table>
 
-    <p><strong>Итого: {{ total }}</strong></p>
+    <p>Протяженность автомобильных дорог регионального или межмуниципального значения составляет {{ total }} км.</p>
 
-    <a href="{% url 'download_report' %}"><button>Скачать .docx</button></a>
+    <div class="download">
+        <a href="{% url 'download_report' %}">
+            <button>Скачать .docx</button>
+        </a>
+    </div>
+
 </body>
 </html>
