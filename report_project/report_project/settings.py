@@ -52,10 +52,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'report_project.urls'
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +126,20 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSV_REPORT_CONFIG = {
+    # Поля, которые должны быть включены в отчет
+    'SELECTED_FIELDS': ['ROAD_ID', 'NAME', 'Shape_Length'],
+
+    # Поля, по которым нужно считать сумму
+    'SUM_FIELDS': ['Shape_Length'],
+
+    # Название отчета
+    'REPORT_TITLE': 'Автомобильные дороги федерального, регионального и межмуниципального значения',
+
+    # Количество строк для предпросмотра
+    'PREVIEW_ROWS': 5,
+
+    # Поле для проверки на пустоту (только строки с заполненным этим полем будут учитываться)
+    'REQUIRED_FIELD': 'ROAD_ID',
+}
