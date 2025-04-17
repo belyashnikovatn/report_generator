@@ -7,11 +7,11 @@ Your report generator system: upload, view, download
 
 
 ## Реализация
-- [ ] Форма для приёма файла
-- [ ] Вью для логики
-- [ ] Настройки
-- [ ] Шаблон
-- [ ] Докуемнтация
+- [x] Форма для приёма файла
+- [x] Вью для логики
+- [x] Настройки
+- [x] Шаблон
+- [x] Докуемнтация
 
 
 ## Технологии
@@ -31,9 +31,10 @@ python -m venv venv
 python -m pip install --upgrade pip  
 pip install -r requirements.txt   
 cd report_project/
+python manage.py migrate   
 python manage.py runserver   
 ```
 
 Перейдите по ссылке:  
 http://127.0.0.1:8000/  
-Откроется домашняя страница:  
+Откроется домашняя страница
